@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Фильмовое приложение</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body class="dark">
+  <header class="header">
+    <div class="container">
+      <div class="header__menu">
+        <h3 class="logo">
+          <a href="index.html" class="logo__link"> <span>V</span>Movie</a>
+        </h3>
+        <form action="#" id="form" class="search">
+          <input type="text" id="search-input" class="search__input" placeholder="Поиск">
+          <svg class="search__svg" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2"
+            fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </form>
+
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#" class="nav__link">lorem ipsum 1</a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="nav__link">lorem ipsum 2</a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="nav__link">lorem ipsum 3</a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="nav__link">lorem ipsum 4</a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="nav__link">lorem ipsum 5</a>
+            </li>
+          </ul>
+        </nav>
+
+      </div>
+      <!-- переделать под карусель -->
+      <div class="header__banner">
+        <div class="header__banner-inner">
+          <img src="./img/film-poster.jpg" alt="" class="header__banner-img">
+          <div class="header__banner-content">
+            <h1 class="header__banner-title">Movie Title</h1>
+            <p class="header__banner-desc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum aliquam accusamus excepturi, explicabo
+              quascorrupti. Quo nihil atque sapiente sequi praesentium laudantium? Accusamus ratione dolore doloribus
+              optiocum impedit harum perferendis mollitia repellat delectus, velit labore ad, sint alias doloremque
+              aperiam
+              voluptate recusandae voluptatibus a vero, at nostrum. Nemo, ullam.
+            </p>
+            <button class="header__banner-btn show-modal">More about this</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="popular">
+    <div class="container">
+      <h3 class=" title popular__title">Popular</h3>
+      <div class="popular__list">
+        <div class="popular__item">
+          <img src="./img/film-poster.jpg" alt="image poster" class="popular__item-img">
+          <p class="popular__item-title">Movie Title</p>
+        </div>
+        <div class="popular__item">
+          <img src="./img/film-poster.jpg" alt="image poster" class="popular__item-img">
+          <p class="popular__item-title">Movie Title</p>
+        </div>
+        <div class="popular__item">
+          <img src="./img/film-poster.jpg" alt="image poster" class="popular__item-img">
+          <p class="popular__item-title">Movie Title</p>
+        </div>
+        <div class="popular__item">
+          <img src="./img/film-poster.jpg" alt="image poster" class="popular__item-img">
+          <p class="popular__item-title">Movie Title</p>
+        </div>
+        <div class="popular__item">
+          <img src="./img/film-poster.jpg" alt="image poster" class="popular__item-img">
+          <p class="popular__item-title">Movie Title</p>
+        </div>
+        <div class="popular__item">
+          <img src="./img/film-poster.jpg" alt="image poster" class="popular__item-img">
+          <p class="popular__item-title">Movie Title</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="incinema">
+    <div class="container">
+      <h3 class=" title incinema__title">in Cinema</h3>
+      <div class="incinema__list">
+        <div class="incinema__item">
+          <img src="./img/placeholdew-width.jpg" alt="image poster" class="incinema__item-img">
+          <p class="incinema__item-title">Movie Title</p>
+        </div>
+        <div class="incinema__item">
+          <img src="./img/placeholdew-width.jpg" alt="image poster" class="incinema__item-img">
+          <p class="incinema__item-title">Movie Title</p>
+        </div>
+        <div class="incinema__item">
+          <img src="./img/placeholdew-width.jpg" alt="image poster" class="incinema__item-img">
+          <p class="incinema__item-title">Movie Title</p>
+        </div>
+        <div class="incinema__item">
+          <img src="./img/placeholdew-width.jpg" alt="image poster" class="incinema__item-img">
+          <p class="incinema__item-title">Movie Title</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="new-films">
+    <div class="container">
+      <h3 class=" title new-films__title">In Cinema</h3>
+      <div class="new-films__list">
+        <div class="new-films__item">
+          <img src="./img/placeholdew-width.jpg" alt="image poster" class="new-films__item-img">
+          <p class="new-films__item-title">Movie Title</p>
+        </div>
+        <div class="new-films__item">
+          <img src="./img/placeholdew-width.jpg" alt="image poster" class="new-films__item-img">
+          <p class="new-films__item-title">Movie Title</p>
+        </div>
+        <div class="new-films__item">
+          <img src="./img/placeholdew-width.jpg" alt="image poster" class="new-films__item-img">
+          <p class="new-films__item-title">Movie Title</p>
+        </div>
+        <div class="new-films__item">
+          <img src="./img/placeholdew-width.jpg" alt="image poster" class="new-films__item-img">
+          <p class="new-films__item-title">Movie Title</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="soon">
+    <div class="container">
+      <h3 class=" title soon__title">Soon</h3>
+      <div class="soon__list">
+        <div class="soon__item">
+          <img src="./img/placeholdew-width.jpg" alt="image poster" class="soon__item-img">
+          <p class="soon__item-title">Movie Title</p>
+        </div>
+        <div class="soon__item">
+          <img src="./img/placeholdew-width.jpg" alt="image poster" class="soon__item-img">
+          <p class="soon__item-title">Movie Title</p>
+        </div>
+        <div class="soon__item">
+          <img src="./img/placeholdew-width.jpg" alt="image poster" class="soon__item-img">
+          <p class="soon__item-title">Movie Title</p>
+        </div>
+        <div class="soon__item">
+          <img src="./img/placeholdew-width.jpg" alt="image poster" class="soon__item-img">
+          <p class="soon__item-title">Movie Title</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <h3 class="footer__logo logo">
+        <a href="index.html" class="footer__logo-link logo__link"> <span>V</span>Movie</a>
+      </h3>
+      <p class="footer__text">
+        powered by
+        <a href="https://github.com/Getvion" class="footer__text-link">Getvion</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- тест -->
+  <div class="modal">
+    <div class="modal__dialog">
+      <div class="modal__close" data-close>&times;</div>
+      <div class="modal__container">
+        <img class="modal__img" src="./img/film-poster.jpg">
+        <div class="modal__content">
+          <h3 class="modal__title">Movie Title</h3>
+          <p class="modal__desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem quae ipsum, hic culpa
+            vitae dolores ex voluptates reiciendis enim. Quos maiores minima autem a maxime modi dignissimos
+            perspiciatis blanditiis. Rem aspernatur natus, quasi veniam repudiandae quisquam nesciunt, aliquid totam,
+            consequuntur iusto ad veritatis. Laudantium in eveniet, minus nulla perspiciatis totam?</p>
+          <p class="modal__rating">
+            <!-- звездный рейтинг -->
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="./js/slider.js"></script>
+  <script src="./js/script.js"></script>
+</body>
+
+</html>
