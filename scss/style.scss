@@ -2,7 +2,7 @@
 // добавить смену цветовой темы
 
 body {
-  background: #111111;
+  background: #222;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -32,9 +32,11 @@ body {
 }
 
 .logo {
-  font-size: 1.8rem;
+  margin-left: 10px;
+  font-size: 2rem;
   line-height: 30px;
   font-weight: 500;
+  cursor: pointer;
 
   &__link {
     color: #fff;
@@ -46,71 +48,26 @@ body {
 }
 
 .header {
-  background-color: #111;
+  background-color: #000;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  &__menu {
+  &__inner {
+    background-color: #000;
     position: fixed;
     z-index: 1;
-    background-color: #111;
+    width: 100%;
+    // max-width: 1200px;
+    height: 50px;
+  }
+
+  &__menu {
+    height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 50px;
-    width: 1200px;
-  }
-
-  &__banner {
-    padding-top: 50px;
-    background: radial-gradient(99.96% 663.27% at 0% 3.74%,
-        #FF0303 0%,
-        rgba(153, 2, 2, 0.495026) 73.55%,
-        rgba(131, 2, 2, 0.387165) 83.53%,
-        rgba(106, 1, 1, 0.262945) 93.4%,
-        rgba(85, 1, 1, 0.15901) 97.86%,
-        rgba(53, 1, 1, 0) 100%);
-  }
-
-  &__banner-inner {
-    max-width: 80%;
-    padding: 50px 0;
-    margin: 0 auto;
-    display: flex;
-  }
-
-  &__banner-img {
-    max-height: 388px;
-  }
-
-  &__banner-content {
-    margin-left: 60px;
-  }
-
-  &__banner-title {
-    color: #fff;
-    font-weight: 500;
-    font-size: 64px;
-    line-height: 75px;
-  }
-
-  &__banner-desc {
-    color: #fff;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 21px;
-    margin-top: 12px;
-    margin-bottom: 55px;
-  }
-
-  &__banner-btn {
-    border: none;
-    padding: 15px 25px;
-    background: #EBD830;
-    border-radius: 30px;
-    font-size: 16px;
-
-    &:active {
-      transform: scale(0.96);
-    }
   }
 }
 
@@ -118,7 +75,7 @@ body {
   position: relative;
 
   &__input {
-    background-color: #222;
+    background-color: #333;
     border: 1px solid #656464;
     border-radius: 20px;
     width: 200px;
@@ -150,6 +107,62 @@ body {
     color: #fff;
   }
 }
+
+.banner {
+  padding-top: 50px;
+  background: radial-gradient(99.96% 663.27% at 0% 3.74%,
+      #FF0303 0%,
+      rgba(153, 2, 2, 0.495026) 73.55%,
+      rgba(131, 2, 2, 0.387165) 83.53%,
+      rgba(106, 1, 1, 0.262945) 93.4%,
+      rgba(85, 1, 1, 0.15901) 97.86%,
+      rgba(53, 1, 1, 0) 100%);
+
+  &-inner {
+    max-width: 80%;
+    padding: 50px 0;
+    margin: 0 auto;
+    display: flex;
+  }
+
+  &-img {
+    max-height: 388px;
+  }
+
+  &-content {
+    margin-left: 60px;
+  }
+
+  &-title {
+    color: #fff;
+    font-weight: 500;
+    font-size: 64px;
+    line-height: 75px;
+  }
+
+  &-desc {
+    color: #fff;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    margin-top: 12px;
+    margin-bottom: 55px;
+  }
+
+  &-btn {
+    border: none;
+    padding: 15px 25px;
+    background: #EBD830;
+    border-radius: 30px;
+    font-size: 16px;
+
+    &:active {
+      transform: scale(0.96);
+    }
+  }
+}
+
+
 
 .films {
   margin-top: 50px;

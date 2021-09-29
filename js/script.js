@@ -1,6 +1,6 @@
 // Добавить разделы "В кинотеатре", "Новые фильмы", "Ожидаемые"
 // Парсить данные в модальное окно
-// Поставить в header__banner данные о самом ожидаемом фильме, может сделать карусель
+// Поставить в banner данные о самом ожидаемом фильме, может сделать карусель
 
 // работа с api
 const API_KEY = '7dcd1d86-569b-4840-9c72-fa383b7b693a';
@@ -47,7 +47,7 @@ form.addEventListener('submit', (event) => {
   if (input.value) {
     document.querySelector('#popular').innerHTML = '';
     document.querySelector('.title__popular').style.display = 'none';
-    document.querySelector('.header__banner').style.display = 'none';
+    document.querySelector('.banner').style.display = 'none';
     getMovies(API_URL_SEARCH + input.value);
     input.value = '';
   }
