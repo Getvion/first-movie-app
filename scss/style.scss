@@ -29,6 +29,7 @@ body {
   line-height: 36px;
   color: #FFFFFF;
   margin-bottom: 16px;
+  margin-top: 50px;
 }
 
 .logo {
@@ -59,7 +60,6 @@ body {
     position: fixed;
     z-index: 1;
     width: 100%;
-    // max-width: 1200px;
     height: 50px;
   }
 
@@ -179,9 +179,35 @@ body {
     background-color: #1b1b1b;
     cursor: pointer;
     transition: transform .2s ease;
+    position: relative;
 
     &:hover {
       transform: scale3d(1.07, 1.07, 1);
+    }
+  }
+
+  &__item-rating {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: #222;
+    font-size: 14px;
+
+    &--green {
+      color: green;
+      border: 2px solid green;
+    }
+
+    &--orange {
+      color: orange;
+      border: 2px solid orange;
+    }
+
+    &--red {
+      color: red;
+      border: 2px solid red;
     }
   }
 
@@ -262,14 +288,6 @@ body {
     display: flex;
     gap: 50px;
   }
-}
-
-.show {
-  display: block
-}
-
-.hide {
-  display: none
 }
 
 .movie {
