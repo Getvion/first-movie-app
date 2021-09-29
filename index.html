@@ -1,3 +1,7 @@
+<!-- Доверстать модальное окно -->
+<!-- Наверстать модалку для регистрации -->
+<!-- Кнопки смены цветовой темы -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,12 +9,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Фильмовое приложение</title>
+  <title>WMovie - каталог фильмов</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" href="./css/normalaze.css">
   <link rel="stylesheet" href="./css/style.css">
 </head>
 
@@ -19,7 +24,7 @@
     <div class="container">
       <div class="header__menu">
         <h3 class="logo">
-          <a href="index.html" class="logo__link"> <span>V</span>Movie</a>
+          <a href="index.html" class="logo__link"> <span>W</span>Movie</a>
         </h3>
         <form action="#" id="form" class="search">
           <input type="text" id="search-input" class="search__input" placeholder="Поиск">
@@ -47,22 +52,23 @@
             <li class="nav__item">
               <a href="#" class="nav__link">lorem ipsum 5</a>
             </li>
+            <li class="nav__item">
+              <a href="#" class="nav__link">Регистрация</a>
+            </li>
           </ul>
         </nav>
 
       </div>
-      <!-- переделать под карусель -->
       <div class="header__banner">
         <div class="header__banner-inner">
           <img src="./img/film-poster.jpg" alt="" class="header__banner-img">
           <div class="header__banner-content">
             <h1 class="header__banner-title">Movie Title</h1>
             <p class="header__banner-desc">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum aliquam accusamus excepturi, explicabo
-              quascorrupti. Quo nihil atque sapiente sequi praesentium laudantium? Accusamus ratione dolore doloribus
-              optiocum impedit harum perferendis mollitia repellat delectus, velit labore ad, sint alias doloremque
-              aperiam
-              voluptate recusandae voluptatibus a vero, at nostrum. Nemo, ullam.
+              Более чем через год после тех событий журналист Эдди Брок пытается приспособиться к жизни в качестве
+              хозяина инопланетного симбиота Венома, который наделяет его сверхчеловеческими способностями. Брок
+              пытается возродить свою карьеру и берет интервью у серийного убийцы Клетуса Касади, который по воле случая
+              становится хозяином Карнажа и сбегает из тюрьмы после неудавшейся казни.
             </p>
             <button class="header__banner-btn show-modal">More about this</button>
           </div>
@@ -71,142 +77,101 @@
     </div>
   </header>
 
-  <section class="popular">
+  <!-- сделать каруселью -->
+  <section class="films">
     <div class="container">
-      <h3 class=" title popular__title">Popular</h3>
-      <div class="popular__list">
-        <div class="popular__item">
-          <img src="./img/film-poster.jpg" alt="image poster" class="popular__item-img">
-          <p class="popular__item-title">Movie Title</p>
-        </div>
-        <div class="popular__item">
-          <img src="./img/film-poster.jpg" alt="image poster" class="popular__item-img">
-          <p class="popular__item-title">Movie Title</p>
-        </div>
-        <div class="popular__item">
-          <img src="./img/film-poster.jpg" alt="image poster" class="popular__item-img">
-          <p class="popular__item-title">Movie Title</p>
-        </div>
-        <div class="popular__item">
-          <img src="./img/film-poster.jpg" alt="image poster" class="popular__item-img">
-          <p class="popular__item-title">Movie Title</p>
-        </div>
-        <div class="popular__item">
-          <img src="./img/film-poster.jpg" alt="image poster" class="popular__item-img">
-          <p class="popular__item-title">Movie Title</p>
-        </div>
-        <div class="popular__item">
-          <img src="./img/film-poster.jpg" alt="image poster" class="popular__item-img">
-          <p class="popular__item-title">Movie Title</p>
-        </div>
-      </div>
-    </div>
-  </section>
+      <h3 class="title title__popular">Популярное</h3>
+      <div id="popular" class="films__list">
 
-  <section class="incinema">
-    <div class="container">
-      <h3 class=" title incinema__title">in Cinema</h3>
-      <div class="incinema__list">
-        <div class="incinema__item">
-          <img src="./img/placeholdew-width.jpg" alt="image poster" class="incinema__item-img">
-          <p class="incinema__item-title">Movie Title</p>
-        </div>
-        <div class="incinema__item">
-          <img src="./img/placeholdew-width.jpg" alt="image poster" class="incinema__item-img">
-          <p class="incinema__item-title">Movie Title</p>
-        </div>
-        <div class="incinema__item">
-          <img src="./img/placeholdew-width.jpg" alt="image poster" class="incinema__item-img">
-          <p class="incinema__item-title">Movie Title</p>
-        </div>
-        <div class="incinema__item">
-          <img src="./img/placeholdew-width.jpg" alt="image poster" class="incinema__item-img">
-          <p class="incinema__item-title">Movie Title</p>
-        </div>
       </div>
-    </div>
-  </section>
 
-  <section class="new-films">
-    <div class="container">
-      <h3 class=" title new-films__title">In Cinema</h3>
-      <div class="new-films__list">
-        <div class="new-films__item">
-          <img src="./img/placeholdew-width.jpg" alt="image poster" class="new-films__item-img">
-          <p class="new-films__item-title">Movie Title</p>
-        </div>
-        <div class="new-films__item">
-          <img src="./img/placeholdew-width.jpg" alt="image poster" class="new-films__item-img">
-          <p class="new-films__item-title">Movie Title</p>
-        </div>
-        <div class="new-films__item">
-          <img src="./img/placeholdew-width.jpg" alt="image poster" class="new-films__item-img">
-          <p class="new-films__item-title">Movie Title</p>
-        </div>
-        <div class="new-films__item">
-          <img src="./img/placeholdew-width.jpg" alt="image poster" class="new-films__item-img">
-          <p class="new-films__item-title">Movie Title</p>
-        </div>
-      </div>
-    </div>
-  </section>
+      <!-- <h3 class=" title">В кинотеатре</h3>
+      <div class="films__list">
+        <div class="films__item">
+          <img src="./img/placeholdew-width.jpg" alt="image poster" class="films__item-im">
+          <p class="films__item-title">Movie Title</p>
+          <p class="films__item-genre">Боевик</p>
+        </div> -->
 
-  <section class="soon">
-    <div class="container">
-      <h3 class=" title soon__title">Soon</h3>
-      <div class="soon__list">
-        <div class="soon__item">
-          <img src="./img/placeholdew-width.jpg" alt="image poster" class="soon__item-img">
-          <p class="soon__item-title">Movie Title</p>
+      <!-- <h3 class="title">Новые фильмы</h3>
+      <div class="films__list">
+        <div class="films__item">
+          <img src="./img/placeholdew-width.jpg" alt="image poster" class="films__item-im">
+          <p class="films__item-title">Movie Title</p>
         </div>
-        <div class="soon__item">
-          <img src="./img/placeholdew-width.jpg" alt="image poster" class="soon__item-img">
-          <p class="soon__item-title">Movie Title</p>
+      </div> -->
+
+      <!-- <h3 class=" title">Ожидаемые</h3>
+      <div class="films__list">
+        <div class="films__item">
+          <img src="./img/placeholdew-width.jpg" alt="image poster" class="films__item-im">
+          <p class="films__item-title">Movie Title</p>
         </div>
-        <div class="soon__item">
-          <img src="./img/placeholdew-width.jpg" alt="image poster" class="soon__item-img">
-          <p class="soon__item-title">Movie Title</p>
-        </div>
-        <div class="soon__item">
-          <img src="./img/placeholdew-width.jpg" alt="image poster" class="soon__item-img">
-          <p class="soon__item-title">Movie Title</p>
-        </div>
-      </div>
+      </div> -->
     </div>
   </section>
 
   <footer class="footer">
     <div class="container">
       <h3 class="footer__logo logo">
-        <a href="index.html" class="footer__logo-link logo__link"> <span>V</span>Movie</a>
+        <a href="index.html" class="footer__logo-link logo__link"> <span>W</span>Movie</a>
       </h3>
       <p class="footer__text">
         powered by
-        <a href="https://github.com/Getvion" class="footer__text-link">Getvion</a>
+        <a href="https://github.com/Getvion/first-movie-app" class="footer__text-link">Getvion</a>
       </p>
     </div>
   </footer>
 
-  <!-- тест -->
   <div class="modal">
     <div class="modal__dialog">
       <div class="modal__close" data-close>&times;</div>
       <div class="modal__container">
-        <img class="modal__img" src="./img/film-poster.jpg">
-        <div class="modal__content">
-          <h3 class="modal__title">Movie Title</h3>
-          <p class="modal__desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem quae ipsum, hic culpa
-            vitae dolores ex voluptates reiciendis enim. Quos maiores minima autem a maxime modi dignissimos
-            perspiciatis blanditiis. Rem aspernatur natus, quasi veniam repudiandae quisquam nesciunt, aliquid totam,
-            consequuntur iusto ad veritatis. Laudantium in eveniet, minus nulla perspiciatis totam?</p>
-          <p class="modal__rating">
-            <!-- звездный рейтинг -->
+        <div>
+          <img class="movie__img" src="./img/film-poster.jpg">
+          <!-- полезная площадь под подстером, можно вставить кадры -->
+        </div>
+        <div class="movie__content">
+          <div class="movie__rating movie__rating--middle">5.5</div>
+          <h2 class="movie__title">Movie Title</h2>
+          <h4 class="movie__title--original">Movie Title 2</h4>
+          <div class="movie__about">О фильме
+            <p>Год производства <span>2021</span></p>
+            <p>Страна <span>США</span></p>
+            <p>Жанр <span>фантастика, боевик, триллер</span></p>
+            <p>Режиссер <span>Энди Серкис</span></p>
+            <p>Премьера <span>30 сентября 2021</span></p>
+            <p>Актеры <span>Тимоти Шаламе, Ребекка Фергюсон, Оскар Айзек</span></p>
+          </div>
+          <p class="movie__desc">Более чем через год после тех событий журналист Эдди Брок пытается приспособиться к
+            жизни в качестве хозяина инопланетного симбиота Венома, который наделяет его сверхчеловеческими
+            способностями. Брок пытается возродить свою карьеру и берет интервью у серийного убийцы Клетуса Касади,
+            который по воле случая становится хозяином Карнажа и сбегает из тюрьмы после неудавшейся казни.
           </p>
+
+          <!-- <div>
+            Сиквелы и приквелы
+            <img src="" alt=""> Постер
+            <p></p> название
+          </div> -->
+          <!-- <div class="movie__trailer">
+            Трейлер
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/wfJH1l7rlEA"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div> -->
+          <!-- <div class="similars">
+            Похожие
+            похожие фильмы
+            <img src="" alt=""> Постер
+            <p></p> название
+            <p></p> жанр
+          </div> -->
         </div>
       </div>
     </div>
   </div>
-
 
   <script src="./js/slider.js"></script>
   <script src="./js/script.js"></script>
