@@ -1,0 +1,348 @@
+// Переписать все на переменные
+// добавить смену цветовой темы
+
+body {
+  background: #111111;
+  font-family: 'Roboto', sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: #303030;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 24px;
+  line-height: 36px;
+  color: #FFFFFF;
+  margin-bottom: 16px;
+}
+
+.logo {
+  font-size: 1.8rem;
+  line-height: 30px;
+  font-weight: 500;
+
+  &__link {
+    color: #fff;
+
+    span {
+      color: red;
+    }
+  }
+}
+
+.header {
+  background-color: #111;
+
+  &__menu {
+    position: fixed;
+    z-index: 1;
+    background-color: #111;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    width: 1200px;
+  }
+
+  &__banner {
+    padding-top: 50px;
+    background: radial-gradient(99.96% 663.27% at 0% 3.74%,
+        #FF0303 0%,
+        rgba(153, 2, 2, 0.495026) 73.55%,
+        rgba(131, 2, 2, 0.387165) 83.53%,
+        rgba(106, 1, 1, 0.262945) 93.4%,
+        rgba(85, 1, 1, 0.15901) 97.86%,
+        rgba(53, 1, 1, 0) 100%);
+  }
+
+  &__banner-inner {
+    max-width: 80%;
+    padding: 50px 0;
+    margin: 0 auto;
+    display: flex;
+  }
+
+  &__banner-img {
+    max-height: 388px;
+  }
+
+  &__banner-content {
+    margin-left: 60px;
+  }
+
+  &__banner-title {
+    color: #fff;
+    font-weight: 500;
+    font-size: 64px;
+    line-height: 75px;
+  }
+
+  &__banner-desc {
+    color: #fff;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    margin-top: 12px;
+    margin-bottom: 55px;
+  }
+
+  &__banner-btn {
+    border: none;
+    padding: 15px 25px;
+    background: #EBD830;
+    border-radius: 30px;
+    font-size: 16px;
+
+    &:active {
+      transform: scale(0.96);
+    }
+  }
+}
+
+.search {
+  position: relative;
+
+  &__input {
+    background-color: #222;
+    border: 1px solid #656464;
+    border-radius: 20px;
+    width: 200px;
+    height: 30px;
+    padding: 0 15px;
+    color: #fff;
+    font-size: 16px;
+  }
+
+  &__svg {
+    stroke: #fff;
+    position: absolute;
+    top: 4px;
+    right: 15px;
+  }
+}
+
+.nav {
+  &__list {
+    font-size: 16px;
+    display: flex;
+  }
+
+  &__item {
+    margin-right: 20px;
+  }
+
+  &__link {
+    color: #fff;
+  }
+}
+
+.films {
+  margin-top: 50px;
+
+  &__list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    width: 290px;
+    margin-bottom: 15px;
+    background-color: #1b1b1b;
+    cursor: pointer;
+    transition: transform .2s ease;
+
+    &:hover {
+      transform: scale3d(1.07, 1.07, 1);
+    }
+  }
+
+  &__item-img {
+    width: 290px;
+    height: 84%;
+  }
+
+  &__item-title {
+    margin: 16px 0 10px 10px;
+    font-weight: 500;
+    font-size: 15px;
+    color: #FFFFFF;
+  }
+
+  &__item-genre {
+    margin-left: 10px;
+    color: #fff;
+    font-size: 14px;
+  }
+}
+
+.footer {
+  background-color: #000;
+  margin-top: 100px;
+  padding-top: 50px;
+  padding-bottom: 20px;
+
+  &__logo {
+    margin-left: 0;
+  }
+
+  &__text {
+    margin-top: 10px;
+    color: #fff;
+    font-size: 16px;
+  }
+
+  &__text-link {
+    color: #fff;
+    text-decoration: underline;
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 40px 0;
+
+  &__close {
+    position: fixed;
+    top: 8px;
+    right: 14px;
+    font-size: 35px;
+    color: #fff;
+    opacity: .5;
+    cursor: pointer
+  }
+
+  &__dialog {
+    width: 80vw;
+    min-height: 90vh;
+    margin: 0 auto;
+    border-radius: 2%;
+    background-color: #222;
+  }
+
+  &__container {
+    position: relative;
+    padding: 5%;
+    display: flex;
+    gap: 50px;
+  }
+}
+
+.show {
+  display: block
+}
+
+.hide {
+  display: none
+}
+
+.movie {
+  &__img {
+    height: 50vh;
+  }
+
+  &__content {
+    max-width: 60%;
+    position: relative
+  }
+
+  &__rating {
+    display: inline-block;
+    font-size: 25px;
+    font-weight: 700;
+    padding: 14px;
+    color: red;
+    border: 1px solid red;
+    border-radius: 20%;
+    position: absolute;
+    right: 10px;
+  }
+
+  &__rating--bad {
+    color: red;
+    border: 2px solid red;
+  }
+
+  &__rating--middle {
+    color: orange;
+    border: 2px solid orange;
+  }
+
+  &__rating--good {
+    color: green;
+    border: 1px solid green;
+  }
+
+  &__title {
+    font-size: 50px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+
+    &--original {
+      font-size: 20px;
+      font-weight: 700;
+      color: #aaa;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__about {
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #fff;
+
+    & p {
+      padding-top: 10px;
+      padding-bottom: 5px;
+      font-size: 16px;
+      border-bottom: 1px solid #fcddfc55;
+      position: relative;
+
+      & span {
+        position: absolute;
+        right: 10px;
+      }
+    }
+  }
+
+  &__desc {
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  &__trailer {
+    margin-top: 20px;
+    color: #fff;
+    width: 80%;
+    aspect-ratio: 1.78;
+
+    & iframe {
+      margin-top: 20px;
+    }
+  }
+}
