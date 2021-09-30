@@ -7,10 +7,10 @@ const API_URL_POPULAR =
 const API_URL_SOON =
   'https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_AWAIT_FILMS&page=';
 
-// Получение популярных фильмов
-getPopularMovies(API_URL_POPULAR);
+// Получение популярных и ожидаемых фильмов
+getMovies(API_URL_POPULAR, API_URL_SOON);
 
-async function getPopularMovies(url) {
+async function getMovies(url, url2) {
   const resp = await fetch(url, {
     headers: {
       'Content-Type': 'application/json',
@@ -19,58 +19,39 @@ async function getPopularMovies(url) {
   });
   const respData = await resp.json();
 
-  showPopularMovies(respData);
+  const resp2 = await fetch(url2, {
+    headers: {
+      'Content-Type': 'application/json',
+      'X-API-KEY': API_KEY,
+    },
+  });
+  const respData2 = await resp2.json();
+  showMovies(respData, respData2);
 }
 
-function showPopularMovies(data) {
-  const popularMovies = document.querySelector('#popular');
+const popularMovies = document.querySelector('#popular');
+const soonMovies = document.querySelector('#soon');
 
+function myHTML(movie) {
+  return `<img src="${movie.posterUrlPreview}" alt="${movie.nameRu}" class="film__item-img">
+    <div class="film__item-rating film__item-rating--${getClassByRate(movie.rating)}">${movie.rating}</div>
+    <p class="film__item-title">${movie.nameRu}</p>
+    <p class="film__item-genre">${movie.genres.map((genre) => ` ${genre.genre}`)}</p>`;
+}
+
+function showMovies(data, data2) {
   data.films.forEach((movie) => {
     const popularMovie = document.createElement('div');
+    popularMovie.classList.add('film__item');
 
-    popularMovie.classList.add('films__item');
-
-    popularMovie.innerHTML = `
-        <img src="${movie.posterUrlPreview}" alt="${movie.nameRu}" class="films__item-img">
-        <div class="films__item-rating films__item-rating--${getClassByRate(movie.rating)}">${movie.rating}</div>
-        <p class="films__item-title">${movie.nameRu}</p>
-        <p class="films__item-genre">${movie.genres.map(
-      (genre) => ` ${genre.genre}`)}</p>
-    `;
-
+    popularMovie.innerHTML = myHTML(movie);
     popularMovies.appendChild(popularMovie);
   });
-}
-
-// получение ожидаемых фильмов
-getSoonMovies(API_URL_SOON);
-
-async function getSoonMovies(url) {
-  const resp = await fetch(url, {
-    headers: {
-      'Content-Type': 'application/json',
-      'X-API-KEY': API_KEY,
-    },
-  });
-  const respData = await resp.json();
-
-  showSoonMovies(respData);
-}
-function showSoonMovies(data) {
-  const soonMovies = document.querySelector('#soon');
-
-  data.films.forEach((movie) => {
+  data2.films.forEach((movie) => {
     const soonMovie = document.createElement('div');
-    soonMovie.classList.add('films__item');
+    soonMovie.classList.add('film__item');
 
-    soonMovie.innerHTML = `
-        <img src="${movie.posterUrlPreview}" alt="${movie.nameRu}" class="films__item-img">
-        <div class="films__item-rating films__item-rating--${getClassByRate(movie.rating)}">${movie.rating}</div>
-        <p class="films__item-title">${movie.nameRu}</p>
-        <p class="films__item-genre">${movie.genres.map(
-      (genre) => ` ${genre.genre}`)}</p>
-    `;
-
+    soonMovie.innerHTML = myHTML(movie);
     soonMovies.appendChild(soonMovie);
   });
 }
@@ -91,8 +72,30 @@ const API_URL_SEARCH =
   'https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=';
 const form = document.querySelector('#form');
 const input = document.querySelector('#search-input');
+const searchBtn = document.querySelector('.search__svg');
 
-form.addEventListener('submit', (event) => {
+async function getMoviesForSeach(url) {
+  const resp = await fetch(url, {
+    headers: {
+      'Content-Type': 'application/json',
+      'X-API-KEY': API_KEY,
+    },
+  });
+  const respData = await resp.json();
+  searchMovies(respData);
+}
+
+function searchMovies(data) {
+  data.films.forEach((movie) => {
+    const popularMovie = document.createElement('div');
+    popularMovie.classList.add('film__item');
+
+    popularMovie.innerHTML = myHTML(movie);
+    popularMovies.appendChild(popularMovie);
+  });
+}
+
+function search(event) {
   event.preventDefault();
   if (input.value) {
     document.querySelector('#popular').innerHTML = '';
@@ -100,15 +103,17 @@ form.addEventListener('submit', (event) => {
     document.querySelector('.title__popular').style.display = 'none';
     document.querySelector('.title__soon').style.display = 'none';
     document.querySelector('.banner').style.display = 'none';
-    getPopularMovies(API_URL_SEARCH + input.value);
+    getMoviesForSeach(API_URL_SEARCH + input.value);
     input.value = '';
   }
-});
+}
+form.addEventListener('submit', search);
+searchBtn.addEventListener('click', search);
 
 // модальное окно
 const modal = document.querySelector('.modal');
 const modalCloseBtn = document.querySelector('[data-close]');
-const filmsItem = document.querySelectorAll('.films__list');
+const filmItem = document.querySelectorAll('.film__list');
 
 function openModal() {
   modal.style.display = 'block';
@@ -120,7 +125,7 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 
-filmsItem.forEach(film => {
+filmItem.forEach(film => {
   film.addEventListener('click', openModal);
 });
 
