@@ -1,4 +1,3 @@
-<!-- Доверстать модальное окно -->
 <!-- Наверстать модалку для регистрации -->
 <!-- Кнопки смены цветовой темы -->
 
@@ -82,14 +81,14 @@
 
 
   <!-- сделать каруселью -->
-  <section class="films">
+  <section class="film">
     <div class="container">
       <h3 class="title title__popular">Популярное</h3>
-      <div id="popular" class="films__list">
+      <div id="popular" class="film__list">
       </div>
 
       <h3 class="title title__soon">Ожидаемые</h3>
-      <div id="soon" class="films__list">
+      <div id="soon" class="film__list">
       </div>
     </div>
   </section>
@@ -113,6 +112,8 @@
         <div>
           <img class="movie__img" src="./img/film-poster.jpg">
         </div>
+        <!-- запрос для получения данных о конретном фильме
+          const URL_API_FILM_INFO = https://kinopoiskapiunofficial.tech/api/v2.2/films/filmID -->
         <div class="movie__content">
           <div class="movie__rating">5.5</div>
           <h2 class="movie__title">Movie Title</h2>
@@ -137,20 +138,45 @@
             <img src="" alt=""> Постер
             <p></p> название
           </div> -->
-          <!-- <div class="movie__trailer">
-            Трейлер
-            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/wfJH1l7rlEA"
-              title="YouTube video player" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen></iframe>
-          </div> -->
-          <!-- <div class="similars">
-            Похожие
-            похожие фильмы
-            <img src="" alt=""> Постер
-            <p></p> название
-            <p></p> жанр
-          </div> -->
+          <div class="movie__trailer">
+            <p>Трейлер</p>
+            <!-- запрос на получение трейлера, видеороликов, тизеров
+            const URL_API_TRAILER = https://kinopoiskapiunofficial.tech/api/v2.2/films/film_ID/videos -->
+
+          </div>
+          <div class="movie__similars">
+            <p>Похожие фильмы</p>
+            <div class="movie__similar">
+              <!-- сделать слайдером -->
+              <!-- запрос для получения похожих филмов: 
+              const API_URL_SIMILAR = https://kinopoiskapiunofficial.tech/api/v2.2/films/filmID/similars -->
+              <div class="movie__similar-item">
+                <img class="movie__similar-img" src="./img/film-poster.jpg" alt="Film name">
+                <p class="movie__similar-title">Film Name</p>
+                <p class="movie__similar-genre">Жанр</p>
+              </div>
+              <div class="movie__similar-item">
+                <img class="movie__similar-img" src="./img/film-poster.jpg" alt="Film name">
+                <p class="movie__similar-title">Film Name</p>
+                <p class="movie__similar-genre">Жанр</p>
+              </div>
+              <div class="movie__similar-item">
+                <img class="movie__similar-img" src="./img/film-poster.jpg" alt="Film name">
+                <p class="movie__similar-title">Film Name</p>
+                <p class="movie__similar-genre">Жанр</p>
+              </div>
+              <div class="movie__similar-item">
+                <img class="movie__similar-img" src="./img/film-poster.jpg" alt="Film name">
+                <p class="movie__similar-title">Film Name</p>
+                <p class="movie__similar-genre">Жанр</p>
+              </div>
+              <div class="movie__similar-item">
+                <img class="movie__similar-img" src="./img/film-poster.jpg" alt="Film name">
+                <p class="movie__similar-title">Film Name</p>
+                <p class="movie__similar-genre">Жанр</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
