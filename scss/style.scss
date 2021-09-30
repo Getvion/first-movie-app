@@ -58,7 +58,7 @@ body {
   &__inner {
     background-color: #000;
     position: fixed;
-    z-index: 1;
+    z-index: 3;
     width: 100%;
     height: 50px;
   }
@@ -82,11 +82,10 @@ body {
     height: 30px;
     padding: 0 15px;
     color: #fff;
-    font-size: 16px;
   }
 
   &__svg {
-    stroke: #fff;
+    stroke: #a79e9e;
     position: absolute;
     top: 4px;
     right: 15px;
@@ -95,7 +94,6 @@ body {
 
 .nav {
   &__list {
-    font-size: 16px;
     display: flex;
   }
 
@@ -154,7 +152,6 @@ body {
     padding: 15px 25px;
     background: #EBD830;
     border-radius: 30px;
-    font-size: 16px;
 
     &:active {
       transform: scale(0.96);
@@ -162,9 +159,7 @@ body {
   }
 }
 
-
-
-.films {
+.film {
   margin-top: 50px;
 
   &__list {
@@ -182,7 +177,8 @@ body {
     position: relative;
 
     &:hover {
-      transform: scale3d(1.07, 1.07, 1);
+      transform: scale3d(1.1, 1.1, 1);
+      z-index: 2;
     }
   }
 
@@ -190,10 +186,12 @@ body {
     position: absolute;
     top: 10px;
     left: 10px;
-    padding: 10px;
     border-radius: 50%;
     background-color: #222;
-    font-size: 14px;
+    font-size: 15px;
+    height: 40px;
+    width: 40px;
+    padding: 9px 6px;
 
     &--green {
       color: green;
@@ -212,11 +210,11 @@ body {
   }
 
   &__item-img {
-    width: 290px;
-    height: 84%;
+    width: 100%;
   }
 
   &__item-title {
+    height: 35px;
     margin: 16px 0 10px 10px;
     font-weight: 500;
     font-size: 15px;
@@ -225,6 +223,7 @@ body {
 
   &__item-genre {
     margin-left: 10px;
+    padding-bottom: 15px;
     color: #fff;
     font-size: 14px;
   }
@@ -243,7 +242,6 @@ body {
   &__text {
     margin-top: 10px;
     color: #fff;
-    font-size: 16px;
   }
 
   &__text-link {
@@ -256,12 +254,12 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 3;
+  z-index: 4;
   display: none;
   width: 100vw;
   height: 100vh;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, .95);
   padding: 40px 0;
 
   &__close {
@@ -275,8 +273,8 @@ body {
   }
 
   &__dialog {
-    width: 80vw;
-    min-height: 90vh;
+    width: 70vw;
+    min-height: 95vh;
     margin: 0 auto;
     border-radius: 2%;
     background-color: #222;
@@ -284,7 +282,7 @@ body {
 
   &__container {
     position: relative;
-    padding: 5%;
+    padding: 3%;
     display: flex;
     gap: 50px;
   }
@@ -296,7 +294,7 @@ body {
   }
 
   &__content {
-    max-width: 60%;
+    max-width: 80%;
     position: relative
   }
 
@@ -312,20 +310,20 @@ body {
     right: 10px;
   }
 
-  &__rating--bad {
-    color: red;
-    border: 2px solid red;
-  }
+  // &__rating--bad {
+  //   color: red;
+  //   border: 2px solid red;
+  // }
 
-  &__rating--middle {
-    color: orange;
-    border: 2px solid orange;
-  }
+  // &__rating--middle {
+  //   color: orange;
+  //   border: 2px solid orange;
+  // }
 
-  &__rating--good {
-    color: green;
-    border: 1px solid green;
-  }
+  // &__rating--good {
+  //   color: green;
+  //   border: 1px solid green;
+  // }
 
   &__title {
     font-size: 50px;
@@ -349,9 +347,9 @@ body {
     & p {
       padding-top: 10px;
       padding-bottom: 5px;
-      font-size: 16px;
       border-bottom: 1px solid #fcddfc55;
       position: relative;
+      font-size: 16px;
 
       & span {
         position: absolute;
@@ -362,18 +360,32 @@ body {
 
   &__desc {
     color: #fff;
-    font-size: 16px;
     line-height: 1.25;
   }
 
   &__trailer {
     margin-top: 20px;
     color: #fff;
-    width: 80%;
+    background-color: #000;
     aspect-ratio: 1.78;
+  }
 
-    & iframe {
-      margin-top: 20px;
-    }
+  &__similars {
+    margin-top: 20px;
+    color: #fff;
+  }
+
+  &__similar {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  &__similar-item {
+    width: 160px;
+  }
+
+  &__similar-img {
+    width: 100%;
   }
 }
