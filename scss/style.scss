@@ -1,6 +1,6 @@
 // Переписать все на переменные
 // добавить смену цветовой темы
-
+// адаптив под мобилки
 body {
   background: #222;
   font-family: 'Roboto', sans-serif;
@@ -273,10 +273,10 @@ body {
   }
 
   &__dialog {
-    width: 70vw;
+    width: 80vw;
     min-height: 95vh;
     margin: 0 auto;
-    border-radius: 2%;
+    border-radius: 3%;
     background-color: #222;
   }
 
@@ -284,17 +284,21 @@ body {
     position: relative;
     padding: 3%;
     display: flex;
-    gap: 50px;
+    gap: 30px;
   }
 }
 
 .movie {
+  &__frames {
+    width: 100%;
+  }
+
   &__img {
-    height: 50vh;
+    width: 100%;
   }
 
   &__content {
-    max-width: 80%;
+    max-width: 100%;
     position: relative
   }
 
