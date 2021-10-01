@@ -1,4 +1,3 @@
-<!-- Наверстать модалку для регистрации -->
 <!-- Кнопки смены цветовой темы -->
 <!-- Отображение списка в виде табов, кнопки смены отображения-->
 
@@ -52,36 +51,18 @@
             <li class="nav__item">
               <a href="#" class="nav__link">lorem ipsum 5</a>
             </li>
-            <li class="nav__item">
-              <a href="#" class="nav__link">Регистрация</a>
-            </li>
           </ul>
+          <button id="regBtn" class="registr">
+            Регистрация
+          </button>
         </nav>
       </div>
     </div>
   </header>
 
-  <section class="banner">
-    <div class="container">
-      <div class="banner-inner">
-        <img src="./img/film-poster.jpg" alt="" class="banner-img">
-        <div class="banner-content">
-          <h1 class="banner-title">Movie Title</h1>
-          <p class="banner-desc">
-            Более чем через год после тех событий журналист Эдди Брок пытается приспособиться к жизни в качестве
-            хозяина инопланетного симбиота Венома, который наделяет его сверхчеловеческими способностями. Брок
-            пытается возродить свою карьеру и берет интервью у серийного убийцы Клетуса Касади, который по воле случая
-            становится хозяином Карнажа и сбегает из тюрьмы после неудавшейся казни.
-          </p>
-          <button class="banner-btn show-modal">More about this</button>
-        </div>
-      </div>
-    </div>
+  <section id="banner" class="banner">
   </section>
 
-
-
-  <!-- сделать каруселью -->
   <section class="film">
     <div class="container">
       <h3 class="title title__popular">Популярное</h3>
@@ -111,67 +92,29 @@
       <div class="modal__close" data-close>&times;</div>
       <div class="modal__container">
         <div class="movie__frames">
-          <img class="movie__img"
-            src="https://cdna.artstation.com/p/assets/images/images/018/302/732/large/george-britton-endgameposter-v2-2.jpg?1558885293">
+          <img class="movie__img" src="">
         </div>
-        <!-- запрос для получения данных о конретном фильме
-          const URL_API_FILM_INFO = https://kinopoiskapiunofficial.tech/api/v2.2/films/filmID -->
         <div class="movie__content">
-          <div class="movie__rating">5.5</div>
+          <div class="movie__rating film__item-rating--orange">5.5</div>
           <h2 class="movie__title">Movie Title</h2>
           <h4 class="movie__title--original">Movie Title 2</h4>
           <div class="movie__about">О фильме
             <p>Год производства <span>2021</span></p>
-            <p>Страна <span>США</span></p>
-            <p>Жанр <span>фантастика, боевик, триллер</span></p>
-            <p>Режиссер <span>Энди Серкис</span></p>
-            <p>Премьера <span>30 сентября 2021</span></p>
-            <p>Актеры <span>Тимоти Шаламе, Ребекка Фергюсон, Оскар Айзек</span></p>
           </div>
-          <p class="movie__desc">
-            Более чем через год после тех событий журналист Эдди Брок пытается приспособиться к
-            жизни в качестве хозяина инопланетного симбиота Венома, который наделяет его сверхчеловеческими
-            способностями. Брок пытается возродить свою карьеру и берет интервью у серийного убийцы Клетуса Касади,
-            который по воле случая становится хозяином Карнажа и сбегает из тюрьмы после неудавшейся казни.
-          </p>
+          <p class="movie__desc"></p>
 
-          <!-- <div>
-            Сиквелы и приквелы
-            <img src="" alt=""> Постер
+          <div>
+            <p>Сиквелы и приквелы</p>
+            <img src="" alt="">
             <p></p> название
-          </div> -->
+          </div>
           <div class="movie__trailer">
             <p>Трейлер</p>
-            <!-- запрос на получение трейлера, видеороликов, тизеров
-            const URL_API_TRAILER = https://kinopoiskapiunofficial.tech/api/v2.2/films/film_ID/videos -->
 
           </div>
           <div class="movie__similars">
             <p>Похожие фильмы</p>
             <div class="movie__similar">
-              <!-- сделать слайдером -->
-              <!-- запрос для получения похожих филмов: 
-              const API_URL_SIMILAR = https://kinopoiskapiunofficial.tech/api/v2.2/films/filmID/similars -->
-              <div class="movie__similar-item">
-                <img class="movie__similar-img" src="./img/film-poster.jpg" alt="Film name">
-                <p class="movie__similar-title">Film Name</p>
-                <p class="movie__similar-genre">Жанр</p>
-              </div>
-              <div class="movie__similar-item">
-                <img class="movie__similar-img" src="./img/film-poster.jpg" alt="Film name">
-                <p class="movie__similar-title">Film Name</p>
-                <p class="movie__similar-genre">Жанр</p>
-              </div>
-              <div class="movie__similar-item">
-                <img class="movie__similar-img" src="./img/film-poster.jpg" alt="Film name">
-                <p class="movie__similar-title">Film Name</p>
-                <p class="movie__similar-genre">Жанр</p>
-              </div>
-              <div class="movie__similar-item">
-                <img class="movie__similar-img" src="./img/film-poster.jpg" alt="Film name">
-                <p class="movie__similar-title">Film Name</p>
-                <p class="movie__similar-genre">Жанр</p>
-              </div>
               <div class="movie__similar-item">
                 <img class="movie__similar-img" src="./img/film-poster.jpg" alt="Film name">
                 <p class="movie__similar-title">Film Name</p>
@@ -184,7 +127,26 @@
     </div>
   </div>
 
-  <script src="./js/slider.js"></script>
+  <div class="reg-modal">
+    <div class="reg-modal__container">
+      <div class="reg-modal__close">&times;</div>
+      <div class="reg-modal__content">
+        <p class="reg-modal__text">Регистрация</p>
+        <form id="reg-form" class="reg-modal__form" action="#">
+          <div class="reg-modal__login">
+            <p class="reg-modal__desc">Логин:</p>
+            <input class="reg-modal__input--login" type="email" placeholder="ivanov@gmail.com">
+          </div>
+          <div class="reg-modal__password">
+            <p class="reg-modal__desc">Пароль:</p>
+            <input class="reg-modal__input--password" type="password" placeholder="qwerty123">
+          </div>
+          <button class="reg-modal__btn" type="submit">регистрация</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <script src="./js/script.js"></script>
 </body>
 

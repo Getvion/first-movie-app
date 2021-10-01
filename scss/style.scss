@@ -7,7 +7,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 2px;
 }
 
 ::-webkit-scrollbar-track {
@@ -93,6 +93,8 @@ body {
 }
 
 .nav {
+  display: flex;
+
   &__list {
     display: flex;
   }
@@ -106,6 +108,15 @@ body {
   }
 }
 
+.registr {
+  display: inline;
+  margin-right: 10px;
+  background-color: #000;
+  border: none;
+  font-size: 16px;
+  color: #add8e6;
+}
+
 .banner {
   padding-top: 50px;
   background: radial-gradient(99.96% 663.27% at 0% 3.74%,
@@ -116,7 +127,7 @@ body {
       rgba(85, 1, 1, 0.15901) 97.86%,
       rgba(53, 1, 1, 0) 100%);
 
-  &-inner {
+  &-item {
     max-width: 80%;
     padding: 50px 0;
     margin: 0 auto;
@@ -133,18 +144,34 @@ body {
 
   &-title {
     color: #fff;
-    font-weight: 500;
+    font-weight: 700;
     font-size: 64px;
     line-height: 75px;
   }
 
-  &-desc {
-    color: #fff;
+  &-title--orig {
+    font-size: 30px;
+    color: #e7e7e7;
     font-weight: 500;
+    margin-top: 10px;
+  }
+
+  &-descr {
+    color: #fff;
+    font-weight: 400;
     font-size: 18px;
     line-height: 21px;
     margin-top: 12px;
     margin-bottom: 55px;
+  }
+
+  &-genre {
+    color: #fff;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    margin-top: 12px;
+    margin-bottom: 20px;
   }
 
   &-btn {
@@ -192,21 +219,6 @@ body {
     height: 40px;
     width: 40px;
     padding: 9px 6px;
-
-    &--green {
-      color: green;
-      border: 2px solid green;
-    }
-
-    &--orange {
-      color: orange;
-      border: 2px solid orange;
-    }
-
-    &--red {
-      color: red;
-      border: 2px solid red;
-    }
   }
 
   &__item-img {
@@ -227,6 +239,21 @@ body {
     color: #fff;
     font-size: 14px;
   }
+}
+
+.film__item-rating--green {
+  color: green;
+  border: 2px solid green;
+}
+
+.film__item-rating--orange {
+  color: orange;
+  border: 2px solid orange;
+}
+
+.film__item-rating--red {
+  color: red;
+  border: 2px solid red;
 }
 
 .footer {
@@ -290,15 +317,15 @@ body {
 
 .movie {
   &__frames {
-    width: 100%;
+    width: 70%;
   }
 
   &__img {
-    width: 100%;
+    width: 70%;
   }
 
   &__content {
-    max-width: 100%;
+    width: 100%;
     position: relative
   }
 
@@ -307,27 +334,10 @@ body {
     font-size: 25px;
     font-weight: 700;
     padding: 14px;
-    color: red;
-    border: 1px solid red;
     border-radius: 20%;
     position: absolute;
     right: 10px;
   }
-
-  // &__rating--bad {
-  //   color: red;
-  //   border: 2px solid red;
-  // }
-
-  // &__rating--middle {
-  //   color: orange;
-  //   border: 2px solid orange;
-  // }
-
-  // &__rating--good {
-  //   color: green;
-  //   border: 1px solid green;
-  // }
 
   &__title {
     font-size: 50px;
@@ -391,5 +401,106 @@ body {
 
   &__similar-img {
     width: 100%;
+  }
+}
+
+.reg-modal {
+  // display: block;
+  background-color: #222;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  transition: all .4s ease-out;
+  transform: translateX(-100%);
+
+  &__container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__close {
+    position: fixed;
+    top: 8px;
+    right: 14px;
+    font-size: 35px;
+    color: #fff;
+    opacity: .5;
+    cursor: pointer
+  }
+
+  &__content {
+    border-radius: 10%;
+    background-color: #222;
+    width: 500px;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__text {
+    color: #fff;
+    font-size: 40px;
+    margin: 100px 0 40px;
+  }
+
+  &__input--login,
+  &__input--password {
+    border: none;
+    border-bottom: 2px solid #000;
+    background-color: #222;
+    color: #fff;
+    font-size: 17px;
+    padding: 0 5px 0;
+    width: 200px;
+    height: 30px;
+    outline: none;
+
+    &::placeholder {
+      color: #888;
+      padding-left: 0;
+    }
+  }
+
+  &__input--login:focus,
+  &__input--password:focus {
+    border-bottom: 2px solid lightblue;
+  }
+
+  &__desc {
+    color: #fff;
+    margin-bottom: 10px;
+    display: inline-block;
+    width: 75px;
+    font-size: 17px;
+  }
+
+  &__btn {
+    display: block;
+    margin: 40px auto 0;
+    padding: 15px 15px;
+    background-color: #111;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #fff;
+    text-transform: uppercase;
+    transition: color, background-color .4s ease;
+    font-weight: 500;
+
+    &:hover {
+      background-color: #f0f0f0;
+      color: #070707;
+    }
+
+    &:active {
+      transform: scale(.97);
+    }
   }
 }
