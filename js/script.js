@@ -6,11 +6,6 @@ const API_URL_SOON =
   'https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_AWAIT_FILMS&page=';
 const API_URL_FILM_INFO =
   'https://kinopoiskapiunofficial.tech/api/v2.2/films/';
-const API_URL_TRAILER =
-  'https://kinopoiskapiunofficial.tech/api/v2.2/films/FILMID/videos';
-const API_URL_SIMILAR =
-  'https://kinopoiskapiunofficial.tech/api/v2.2/films/FILMID/similars';
-
 // Получение популярных и ожидаемых фильмов
 getMovies(API_URL_POPULAR, API_URL_SOON);
 
@@ -40,7 +35,7 @@ const banner = document.querySelector('#banner');
 
 function myHTML(movie) {
   return `
-  <div class="film__item-container">
+  <div class="film__item-container" data-category="${movie.filmId}">
     <div class="film__item-img" style="background-image: url(${movie.posterUrlPreview})"></div>
     <div class="film__item-rating film__item-rating--${getClassByRate(movie.rating)}">${movie.rating}</div>
     <p class="film__item-title">${movie.nameRu}</p>
@@ -122,7 +117,6 @@ function showMovies(data, data2) {
   }
 }
 
-
 // Изменение цвета по рейтингу
 function getClassByRate(vote) {
   if (vote >= 7 || vote >= '90') {
@@ -202,13 +196,22 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
-
-// модальное окно фильма (парсинг не работатет)
+// модальное окно фильма (парсинг работает очень криво)
 const modal = document.querySelector('.modal');
 const modalCloseBtn = document.querySelector('[data-close]');
-const filmItem = document.querySelectorAll('.film__list');
+const filmsItem = document.querySelectorAll('.film__list');
 
-async function getMoviesModal(url, url2, url3) {
+function getIdFilm() {
+  const filmsId = document.querySelectorAll('[data-category]');
+  for (let i = 0; i < filmsId.length; i++) {
+    filmsId[i].addEventListener('click', () => {
+      const filmId = filmsId[i].dataset.category;
+      getMoviesModal(API_URL_FILM_INFO + filmId);
+    });
+  }
+}
+
+async function getMoviesModal(url) {
   const resp = await fetch(url, {
     headers: {
       'Content-Type': 'application/json',
@@ -216,22 +219,8 @@ async function getMoviesModal(url, url2, url3) {
     },
   });
   const respData = await resp.json();
-  const resp2 = await fetch(url2, {
-    headers: {
-      'Content-Type': 'application/json',
-      'X-API-KEY': API_KEY,
-    },
-  });
-  const respData2 = await resp2.json();
-  const resp3 = await fetch(url3, {
-    headers: {
-      'Content-Type': 'application/json',
-      'X-API-KEY': API_KEY,
-    },
-  });
-  const respData3 = await resp3.json();
 
-  showMoviesModal(respData, respData2, respData3);
+  showMoviesModal(respData);
 }
 
 function myModalHTML(movie) {
@@ -254,69 +243,43 @@ function myModalHTML(movie) {
     </div>
     <div class="movie__content">
     <div class="movie__rating">
-      <div class="movie__rating--kp film__item-rating--${getClassByRate(movie.rating)}">${movie.rating}</div>
-      <div class="movie__rating--imdb film__item-rating--${getClassByRate(movie.rating)}">${movie.ratingImdb}</div>
+      <div class="movie__rating--kp film__item-rating--${getClassByRate(movie.ratingKinopoisk)}">${movie.ratingKinopoisk}</div>
+      <div class="movie__rating--imdb film__item-rating--${getClassByRate(movie.ratingImdb)}">${movie.ratingImdb}</div>
     </div>
       <h2 class="movie__title">${movie.nameRu}</h2>
       <h4 class="movie__title--original">${movie.nameOriginal}</h4>
       <div class="movie__about">О фильме
+      <p>Слоган <span>${movie.slogan}</span></p>
       <p>Год выхода <span>${movie.year}</span></p>
       <p>Страна <span>${movie.countries.map((country) => ` ${country.country}`)}</span></p>
-      <p>Режиссер <span>Энди Серкис</span></p>
       <p>Возраст <span>${movie.ratingAgeLimits}</span></p>
-      <p>Время<span>${movie.filmLength}</span></p>
+      <p>Время<span>${movie.filmLength} минут</span></p>
       </div>
       <p class="movie__desc">${movie.description}</p>
-      <div>
-      <p>Сиквелы и приквелы </p>
-        <img src="" alt="">
-        <p></p> название
-      </div>
-      <div class="movie__trailer">
-      <p>Трейлер</p>
-      </div>
-      <div class="movie__similars">
-        <p>Похожие фильмы</p>
-        <div class="movie__similar">
-          <div class="movie__similar-item">
-            <img class="movie__similar-img" src="./img/film-poster.jpg" alt="Film name">
-            <p class="movie__similar-title">Film Name</p>
-          </div>
-        </div>
-      </div>
-  </div>
+    </div>
   </div>`;
 }
-
 
 const movieModalDialog = document.createElement('div');
 function showMoviesModal(data) {
   movieModalDialog.classList.add('modal__dialog');
-
-  movieModalDialog.innerHTML = myModalHTML(data.films[1]);
+  movieModalDialog.innerHTML = myModalHTML(data);
+  console.log(data);
   modal.appendChild(movieModalDialog);
 }
 
-function getIdFilm(event) {
-  console.log(event);
-  // узнаем id фильма, подаставляем его в переменные и вызываем функцию
-  // getMoviesModal(API_URL_FILM_INFO, API_URL_TRAILER, API_URL_SIMILAR);
-}
-
-function openModal(event) {
+function openModal() {
   modal.style.display = 'block';
   document.body.style.overflow = 'hidden';
-  const target = event.target;
-  getIdFilm(target);
+  getIdFilm();
 }
-
 
 function closeModal() {
   modal.style.display = 'none';
   document.body.style.overflow = '';
 }
 
-filmItem.forEach(film => {
+filmsItem.forEach(film => {
   film.addEventListener('click', openModal);
 });
 

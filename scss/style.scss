@@ -1,6 +1,5 @@
 // Переписать все на переменные
 // добавить смену цветовой темы
-// адаптив под мобилки
 body {
   background: #222;
   font-family: 'Roboto', sans-serif;
@@ -308,7 +307,7 @@ body {
 
   &__dialog {
     width: 80vw;
-    min-height: 95vh;
+    min-height: 50vh;
     margin: 0 auto;
     border-radius: 3%;
     background-color: #222;
@@ -347,16 +346,20 @@ body {
   &__rating--imdb {
     margin-left: 10px;
     font-size: 25px;
+    line-height: 62px;
+    text-align: center;
     font-weight: 700;
-    padding: 14px;
     border-radius: 20%;
+    height: 65px;
+    width: 65px;
   }
 
   &__title {
-    font-size: 50px;
+    font-size: 45px;
     font-weight: 700;
     color: #fff;
     margin-bottom: 10px;
+    width: 73%;
 
     &--original {
       font-size: 20px;
