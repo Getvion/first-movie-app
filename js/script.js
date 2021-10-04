@@ -1,4 +1,3 @@
-// Парсить данные в модальное окно
 const API_KEY = '7dcd1d86-569b-4840-9c72-fa383b7b693a';
 const API_URL_POPULAR =
   'https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=';
@@ -6,6 +5,7 @@ const API_URL_SOON =
   'https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_AWAIT_FILMS&page=';
 const API_URL_FILM_INFO =
   'https://kinopoiskapiunofficial.tech/api/v2.2/films/';
+
 // Получение популярных и ожидаемых фильмов
 getMovies(API_URL_POPULAR, API_URL_SOON);
 
@@ -33,6 +33,7 @@ const popularMovies = document.querySelector('#popular');
 const soonMovies = document.querySelector('#soon');
 const banner = document.querySelector('#banner');
 
+// Генерация HTML для разделов популярное и ожидаемое
 function myHTML(movie) {
   return `
   <div class="film__item-container" data-category="${movie.filmId}">
@@ -42,6 +43,8 @@ function myHTML(movie) {
     <p class="film__item-genre">${movie.genres.map((genre) => ` ${genre.genre}`)}</p>
   </div>`;
 }
+
+// Генерация HTML контента для баннера
 function myBannerHTML(movie) {
   if (movie.description === null) {
     movie.description = ' ';
@@ -63,6 +66,8 @@ function myBannerHTML(movie) {
   </div >
   `;
 }
+
+// Обработка полученного из myHTML контента
 function showMovies(data, data2) {
   data.films.forEach((movie) => {
     const popularMovie = document.createElement('div');
@@ -84,7 +89,7 @@ function showMovies(data, data2) {
 
   banner.appendChild(mostPopular);
 
-  // Получение информации о фильме по его id
+  // Получение информации о фильме по его id для баннера
   let counter = 0;
   let filmId = data.films[counter].filmId;
   let filmLink = API_URL_FILM_INFO + filmId;
@@ -128,7 +133,7 @@ function getClassByRate(vote) {
   }
 }
 
-//Поиск 
+// Поиск 
 const API_URL_SEARCH =
   'https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=';
 const form = document.querySelector('#form');
@@ -156,6 +161,7 @@ function searchMovies(data) {
   });
 }
 
+//  Удаляю разделы чтобы на странице показывались только фильмы из поиска
 function search(event) {
   event.preventDefault();
   if (input.value) {
@@ -172,7 +178,7 @@ form.addEventListener('submit', search);
 searchBtn.addEventListener('click', search);
 
 
-// окно регистрации
+// Окно регистрации
 const regBtn = document.querySelector('#regBtn');
 const regModal = document.querySelector('.reg-modal');
 const closeRegModalBtn = document.querySelector('.reg-modal__close');
@@ -196,15 +202,14 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
-// модальное окно фильма (парсинг работает очень криво)
+// Модальное окно фильма (парсинг работает очень криво)
 const modal = document.querySelector('.modal');
 const modalCloseBtn = document.querySelector('[data-close]');
-const filmsItem = document.querySelectorAll('.film__list');
+const filmsLists = document.querySelectorAll('.film__list');
 
-function getIdFilm() {
-  const filmsId = document.querySelectorAll('[data-category]');
+function getIdFilm(filmsId) {
   for (let i = 0; i < filmsId.length; i++) {
-    filmsId[i].addEventListener('click', () => {
+    filmsId[i].addEventListener('click', function () {
       const filmId = filmsId[i].dataset.category;
       getMoviesModal(API_URL_FILM_INFO + filmId);
     });
@@ -223,6 +228,7 @@ async function getMoviesModal(url) {
   showMoviesModal(respData);
 }
 
+// Генерация HTML для модального окна
 function myModalHTML(movie) {
   switch (movie.ratingAgeLimits) {
     case 'age18': movie.ratingAgeLimits = '18+';
@@ -260,37 +266,45 @@ function myModalHTML(movie) {
   </div>`;
 }
 
+// Генерация модального окна
 const movieModalDialog = document.createElement('div');
 function showMoviesModal(data) {
   movieModalDialog.classList.add('modal__dialog');
   movieModalDialog.innerHTML = myModalHTML(data);
-  console.log(data);
   modal.appendChild(movieModalDialog);
 }
 
+// Открытие модального окна
 function openModal() {
   modal.style.display = 'block';
   document.body.style.overflow = 'hidden';
-  getIdFilm();
 }
 
+// Закрытие модального окна
 function closeModal() {
   modal.style.display = 'none';
   document.body.style.overflow = '';
 }
 
-filmsItem.forEach(film => {
-  film.addEventListener('click', openModal);
+// Открытие модального окна и вызов id фильма
+filmsLists.forEach(film => {
+  film.addEventListener('click', function () {
+    openModal();
+    const filmsId = document.querySelectorAll('[data-category]');
+    getIdFilm(filmsId);
+  });
 });
 
 modalCloseBtn.addEventListener('click', closeModal);
 
+// Слушаетль на задний фон модального окна чтобы не обязательно было попадать по иконке крестика
 modal.addEventListener('click', (e) => {
   if (e.target === modal) {
     closeModal();
   }
 });
 
+// Вешаю слушатель на Escape чтобы улучшить UX
 document.addEventListener('keydown', (event) => {
   if (event.keyCode === 27) {
     closeModal();
