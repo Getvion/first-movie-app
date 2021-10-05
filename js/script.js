@@ -265,13 +265,32 @@ function myModalHTML(movie) {
     </div>
   </div>`;
 }
+function modalLoading() {
+  return `<div class="loading">
+  <div id="fountainG">
+    <div id="fountainG_1" class="fountainG"></div>
+    <div id="fountainG_2" class="fountainG"></div>
+    <div id="fountainG_3" class="fountainG"></div>
+    <div id="fountainG_4" class="fountainG"></div>
+    <div id="fountainG_5" class="fountainG"></div>
+    <div id="fountainG_6" class="fountainG"></div>
+    <div id="fountainG_7" class="fountainG"></div>
+    <div id="fountainG_8" class="fountainG"></div>
+  </div>
+</div>`;
+}
 
-// Генерация модального окна
+// Генерация модального окна и блока загрузки
 const movieModalDialog = document.createElement('div');
 function showMoviesModal(data) {
   movieModalDialog.classList.add('modal__dialog');
-  movieModalDialog.innerHTML = myModalHTML(data);
+  movieModalDialog.innerHTML = modalLoading();
   modal.appendChild(movieModalDialog);
+
+  setTimeout(() => {
+    movieModalDialog.innerHTML = myModalHTML(data);
+    modal.appendChild(movieModalDialog);
+  }, 2200);
 }
 
 // Открытие модального окна
@@ -280,10 +299,11 @@ function openModal() {
   document.body.style.overflow = 'hidden';
 }
 
-// Закрытие модального окна
+// Закрытие модального окна и очищение movieModalDialog
 function closeModal() {
   modal.style.display = 'none';
   document.body.style.overflow = '';
+  movieModalDialog.innerHTML = '';
 }
 
 // Открытие модального окна и вызов id фильма

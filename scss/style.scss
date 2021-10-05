@@ -311,7 +311,7 @@ body {
 
   &__dialog {
     width: 80vw;
-    min-height: 50vh;
+    min-height: 90vh;
     margin: 0 auto;
     border-radius: 3%;
     background-color: #222;
@@ -319,7 +319,7 @@ body {
 
   &__container {
     position: relative;
-    padding: 3%;
+    padding: 5%;
     display: flex;
     gap: 30px;
   }
@@ -521,6 +521,85 @@ body {
 
     &:active {
       transform: scale(.97);
+    }
+  }
+}
+
+.loading {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+
+  #fountainG {
+    position: relative;
+    width: 222px;
+    height: 27px;
+    margin: auto;
+  }
+
+  .fountainG {
+    position: absolute;
+    top: 0;
+    background-color: rgb(255, 255, 255);
+    width: 27px;
+    height: 27px;
+    animation-name: bounce_fountainG;
+    animation-duration: 1.235s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    transform: scale(.3);
+    border-radius: 18px;
+  }
+
+  #fountainG_1 {
+    left: 0;
+    animation-delay: 0.496s;
+  }
+
+  #fountainG_2 {
+    left: 28px;
+    animation-delay: 0.6125s;
+  }
+
+  #fountainG_3 {
+    left: 55px;
+    animation-delay: 0.739s;
+  }
+
+  #fountainG_4 {
+    left: 83px;
+    animation-delay: 0.8655s;
+  }
+
+  #fountainG_5 {
+    left: 111px;
+    animation-delay: 0.992s;
+  }
+
+  #fountainG_6 {
+    left: 139px;
+    animation-delay: 1.1085s;
+  }
+
+  #fountainG_7 {
+    left: 166px;
+    animation-delay: 1.235s;
+  }
+
+  #fountainG_8 {
+    left: 194px;
+    animation-delay: 1.3615s;
+  }
+
+  @keyframes bounce_fountainG {
+    0% {
+      transform: scale(1);
+      background-color: rgba(255, 255, 255, 0.98);
+    }
+
+    100% {
+      transform: scale(.3);
+      background-color: rgb(255, 255, 255);
     }
   }
 }
